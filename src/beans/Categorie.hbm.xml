@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 1 mai 2017 18:45:24 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="beans.Categorie" table="CATEGORIE">
+        <id name="idCategorie" type="java.lang.Long">
+            <column name="ID_CATEGORIE" />
+            <generator class="native" />
+        </id>
+        <property name="titre" type="java.lang.String">
+            <column name="TITRE" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" />
+        </property>
+        <property name="dateAjout" type="java.util.Date">
+            <column name="DATEAJOUT" />
+        </property>
+        <set name="produits" table="APPARTENIR" >
+            <key>
+                <column name="ID_CATEGORIE" />
+            </key>
+            <many-to-many class="beans.Produit" column="ID_PRODUIT"/>
+        </set>
+    </class>
+</hibernate-mapping>
